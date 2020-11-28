@@ -1,5 +1,10 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 .App {
-  text-align: center;
 }
 
 .App-logo {
@@ -37,3 +42,196 @@
     transform: rotate(360deg);
   }
 }
+
+body {
+  background: #000;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: left;
+}
+
+div {
+  display: block;
+}
+
+ul {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+  padding: 0;
+  width: 100%;
+}
+
+.Modal {
+  color: #fff;
+  position: fixed;
+  flex-direction: column;
+  display: flex;
+  z-index: 3;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.Modal-Item {
+  width: 500px;
+  max-width: 95%;
+  height: 750px;
+  max-height: 80vh;
+  justify-content: flex-start;
+  padding: 0!important;
+}
+
+.Modal--Generic {
+  border: 1px solid #fff;
+  background: #000;
+  overflow-y: scroll;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.Modal--Generic::-webkit-scrollbar {
+  display: none;
+}
+
+.Modal-Item-Info {
+  border-bottom: 1px solid #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px 40px 20px;
+}
+
+.Modal-Item-Player-Header {
+
+}
+
+.Modal-Item-Name {
+  font-family: "Lora","Courier New",monospace,serif;
+  font-size: 24px;
+}
+
+.Model-Item-Content {
+  padding: 20px 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.Model-Item-Content::-webkit-scrollbar {
+  display: none;
+}
+
+.Player-Info-Stats {
+
+}
+
+.Player-Info-Line {
+  display: grid;
+  grid-template-columns: 180px auto;
+  min-height: 34px;
+  align-items: center;
+  padding: 2px 40px;
+  font-family: "Lora","Courier New",monospace,serif;
+  font-size: 18px;
+}
+
+.Player-Info-Line:nth-child(odd) {
+  background: rgba(30,30,30,.64);
+}
+
+.Player-Info-Line-Header {
+  font-weight: 700;
+}
+
+.Player-Info-Items {
+  padding: 10px 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.Player-Info-Items-Box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: auto;
+  min-width: 150px;
+  height: 80px;
+  margin: 5px;
+  padding: 10px 0;
+  background: #111;
+  border-radius: 5px;
+}
+
+.Player-Info-Items-Header {
+  font-family: "Open Sans","Helvetica Neue",sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.Player-Info-Items-Details {
+  display: flex;
+  flex-direction: row;
+}
+
+.Player-Info-Items-Name {
+  font-family: "Lora","Courier New",monospace,serif;
+}
+
+.Player-Info-Bio {
+  font-family: "Lora","Courier New",monospace,serif;
+  margin: 0;
+}
+
+.Player-Soulscream {
+  height: auto;
+  max-width: 240px;
+  border-radius: 5px;
+}
+
+.Player-Soulscream-Body {
+  height: auto;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: "Lora","Courier New",monospace,serif;
+  font-style: italic;
+  word-wrap: break-word;
+  color: red;
+}
+
+.Modal-Item-Vibe-Quality {
+  color: #8fdb88;
+}
+
+.Modal-Item-Vibe-Excellent {
+  color: #5de04f;
+}
+
+.Modal-Item-Vibe-Terrible {
+  color: #e00000;
+}
+
+.Modal-Item-Vibe-Neutral {
+  color: #d1d1d1;
+}
+
+.Modal-Item-Vibe-LessThanIdeal {
+  color: #d97373;
+}
+
+.Modal-Item-Vibe-FarLessThanIdeal {
+  color: #de3c3c;
+}
+
+.Modal-Item-Vibe-Terrible {
+  color: #e00000;
+}
+
