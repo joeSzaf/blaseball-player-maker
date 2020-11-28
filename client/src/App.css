@@ -58,8 +58,8 @@ div {
 ul {
   display: block;
   list-style-type: disc;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
+  margin-block-start: 0;
+  margin-block-end: 0;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
   padding-inline-start: 40px;
@@ -215,6 +215,10 @@ ul {
   color: #5de04f;
 }
 
+.Modal-Item-Vibe-MostExcellent {
+  color: #15d400;
+}
+
 .Modal-Item-Vibe-Terrible {
   color: #e00000;
 }
@@ -235,3 +239,27 @@ ul {
   color: #e00000;
 }
 
+img, svg {
+  vertical-align: middle;
+}
+
+.Player-Vibe-Line-Arrow {
+  font-size: 22px;
+  width: 16px;
+  margin-top: 2px;
+}
+
+svg {
+  overflow: hidden;
+}
+
+.Player-Vibe-Line-Text {
+  padding: 0 5px;
+  font-family: "Lora","Courier New",monospace,serif;
+}
+
+.Player-Vibe-Line span {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+}

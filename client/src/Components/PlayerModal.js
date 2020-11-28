@@ -16,6 +16,20 @@ function PlayerModal() {
                         <div className='Player-Info-Line-Header'>
                             Current Vibe
                         </div>
+                        <span className='Player-Vibe-Line Modal-Item-Vibe-MostExcellent'>
+                            <span>
+                                <svg stroke='currentColor' fill='currentColor' strokeWidth='0' viewBox='0 0 10 16' className='Player-Vibe-Line-Arrow' height='1em' width='1em' xmlns='http://www.w3.org/2000/svg'>
+                                    <path fillRule='evenodd' d="M5 3L0 9h3v4h4V9h3L5 3z"></path>
+                                </svg>
+                                <svg stroke='currentColor' fill='currentColor' strokeWidth='0' viewBox='0 0 10 16' className='Player-Vibe-Line-Arrow' height='1em' width='1em' xmlns='http://www.w3.org/2000/svg'>
+                                    <path fillRule='evenodd' d="M5 3L0 9h3v4h4V9h3L5 3z"></path>
+                                </svg>
+                                <svg stroke='currentColor' fill='currentColor' strokeWidth='0' viewBox='0 0 10 16' className='Player-Vibe-Line-Arrow' height='1em' width='1em' xmlns='http://www.w3.org/2000/svg'>
+                                    <path fillRule='evenodd' d="M5 3L0 9h3v4h4V9h3L5 3z"></path>
+                                </svg>
+                                <div className='Player-Vibe-Line-Text'>Most Excellent</div>
+                            </span>
+                        </span>
                     </div>
                     <div className='Player-Info-Line'>
                         <div className='Player-Info-Line-Header'>
