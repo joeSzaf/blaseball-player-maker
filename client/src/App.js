@@ -1,53 +1,104 @@
-import React, { Component } from 'react'
+import React, { Component, useState, useEffect } from 'react'
 
 import PlayerModal from './Components/PlayerModal'
+import PlayerForm from './Components/PlayerForm'
+import Header from './Components/Header'
+import PlayerList from './Components/PlayerList'
+import Footer from './Components/Footer'
+
+import useModal from './Hooks/useModal'
+import useFormModal from './Hooks/useFormModal'
 
 import './App.css'
 
-class App extends Component {
-  state = {
-    response: '',
-    post: '',
-    responseToPost: '',
+function App() {
+  const intitialPlayers = JSON.parse(window.localStorage.getItem('players')) || []
+  const {isShowing, toggle} = useModal()
+  const {formIsShowing, formToggle} = useFormModal()
+
+  const [players, setPlayers] = useState(intitialPlayers)
+  const [selectedPlayer, setSelectedPlayer] = useState(null)
+
+  const editPlayer = (player) => {
+    console.log(player, selectedPlayer)
+    if (selectedPlayer) {
+      console.log('updating player')
+      let updatedPlayers = [...players]
+      updatedPlayers[selectedPlayer] = player
+      setPlayers(updatedPlayers)
+    } else {
+      console.log('adding a new player')
+      setPlayers([...players, player])
+    }
+    setSelectedPlayer(null)
   }
-  
-  componentDidMount() {
-    /*
-    this.callApi()
-      .then(res => this.setState({ response: res.express }))
-      .catch(err => console.log(err))
-    */
+
+  const removePlayer = (playerToBeDeleted) => {
+    setPlayers(players.filter((player) => playerToBeDeleted !== player))
   }
-  
-  callApi = async () => {
-    const response = await fetch('/api/hello')
-    const body = await response.json()
-    if (response.status !== 200) throw Error(body.message)
-    
-    return body
+
+  useEffect(() => {
+    const players = JSON.parse(localStorage.getItem('players'))
+    if (players) {
+      setPlayers(players)
+    }
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem('players', JSON.stringify(players))
+  }, [players])
+
+ 
+
+  const handleNewPlayer = () => {
+    setSelectedPlayer(null)
+    formToggle()
   }
-  
-  handleSubmit = async e => {
-    e.preventDefault()
-    const response = await fetch('/api/world', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ post: this.state.post }),
-    })
-    const body = await response.text()
-    
-    this.setState({ responseToPost: body })
+
+  const handleViewPlayerModalClose = () => {
+    setSelectedPlayer(null)
+    toggle()
   }
-  
-  render() {
-    return (
-      <div className="App">
-        <PlayerModal></PlayerModal>
-      </div>
-    )
+
+  const handlePlayerClick = (index) => {
+    console.log(index, selectedPlayer)
+    setSelectedPlayer(index)
+    console.log(selectedPlayer, players[selectedPlayer], index)
+    toggle()
   }
+
+  const handlePlayerEdit = (index) => {
+    console.log(index, selectedPlayer)
+    setSelectedPlayer(index)
+    console.log(selectedPlayer, players[selectedPlayer], index)
+    formToggle()
+  }
+
+  return (
+    <div className="App">
+      <Header></Header>
+      <PlayerList
+        players={players}
+        removePlayer={removePlayer}
+        handleClick={handlePlayerClick}
+        handleEdit={handlePlayerEdit}
+      >
+      </PlayerList>
+      <button onClick={handleNewPlayer}>Add Player</button>
+      <Footer></Footer>
+      <PlayerModal
+        isShowing={isShowing}
+        hide={handleViewPlayerModalClose}
+        playerInfo={players[selectedPlayer]}
+      />
+      <PlayerForm
+        isShowing={formIsShowing}
+        hide={formToggle}
+        editPlayer={editPlayer}
+        currentPlayer={selectedPlayer ? players[selectedPlayer] : {}}
+      />
+    </div>
+  )
 }
 
 export default App

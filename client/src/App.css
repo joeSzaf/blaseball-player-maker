@@ -5,6 +5,12 @@
 }
 
 .App {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 0 calc(50% - 512px);
 }
 
 .App-logo {
@@ -262,4 +268,71 @@ svg {
   display: flex;
   flex-direction: row;
   width: fit-content;
+}
+
+.Header {
+  font-size: 60px;
+  font-family: "Lora","Courier New",monospace,serif;
+}
+
+.Player-Container {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.Player-Wrapper:nth-child(odd) {
+  color: red;
+  background: rgba(30,30,30,.64);
+}
+
+.Player-Name {
+  padding: 2px 0;
+  font-size: 20px;
+  margin: 0 10px;
+}
+
+.Player-Wrapper:hover {
+  background: #424242;
+}
+
+.Modal-Background {
+  background-color: rgba(0,0,0,.9);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  z-index: 3;
+}
+
+.Modal-Close {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: none;
+}
+
+.Modal-Close:hover {
+  background: #424242;
+}
+
+.Modal-Close svg {
+  height: 28px;
+  width: 28px;
+}
+
+button {
+  text-transform: none;
+  overflow: visible
 }
